@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian:stable-slim
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND=teletype
 RUN mkdir /iso && mkdir /var/lib/tftpboot && \
