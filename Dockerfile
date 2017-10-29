@@ -4,7 +4,8 @@ ENV DEBIAN_FRONTEND=teletype
 RUN apt-get update && apt-get -y install \
 																 kmod \
 																 inetutils-inetd \
-																 tftpd-hpa
+																 tftpd-hpa && \
+		rm -rf /var/lib/apt/lists/*
 COPY ./netboot /srv/tftp
 
 RUN echo "tftp    dgram   udp4    wait    root    /usr/sbin/in.tftpd /usr/sbin/in.tftpd -s /srv/tftp" >> /etc/inetd.conf && \
